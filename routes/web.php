@@ -14,3 +14,23 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/home', function () {
+    return view('home');
+});
+
+Auth::routes();
+
+Route::get('/purchase-offering', [
+	'as' => 'purchaseOffering',
+	'uses' => 'OfferingController@purchaseOfferings'
+]);
+
+Route::post('/purchases', [
+	'as' => 'purchaseOffering',
+	'uses' => 'PurchaseController@purchaseOffer'
+]);
+
+Route::get('/purchases', [
+	'as' => 'purchaseOffering',
+	'uses' => 'PurchaseController@getPurchasedOffer'
+]);
